@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Familiares</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content forceOverscroll="false" padding class="bg-img">
+
+  <ion-card class="other">
+    <div><h2>Fotografias Familiares</h2></div>
+    <ion-toolbar>
+      <ion-segment scrollable dragula="dragula_band" [(dragulaModel)]="photosOrdenadas">
+        <ion-segment-button *ngFor="let item of photosOrdenadas;">
+          <ion-card>
+            <ion-card-content>
+              <img src={{item.urlImage}} alt="" srcset="" />
+            </ion-card-content>
+          </ion-card>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+  </ion-card>
+
+  <ion-card class="other">
+
+    <ion-grid>
+      <div><h2>Fotografias</h2></div>
+      <ion-row dragula="dragula_band" [(dragulaModel)]="photosRandom" lines="none">
+        <ion-col size="4" *ngFor="let item of photosRandom">
+          <ion-card>
+            <img src={{item.urlImage}} alt="" srcset="" (click)="verImagen(item)" />
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+
+</ion-content>
+
+<ion-footer class="myColor">
+  <ion-row>
+    <ion-col>
+      <ion-button class="btn-inicio" expand="block" (click)="botonRegresar()">
+        <ion-icon slot="end" name="arrow-back"></ion-icon>
+        Regresar
+      </ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button class="btn-inicio" expand="block" routerLink="/part1">
+        <ion-icon slot="end" name="arrow-forward"></ion-icon>
+        Continuar
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

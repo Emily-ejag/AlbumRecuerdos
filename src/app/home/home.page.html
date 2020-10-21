@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Album
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="bg-img">
+
+
+  <ion-card>
+      <ion-img src="assets/imagenes/manos.jpg"></ion-img>    
+      <ion-img src="assets/imagenes/tit.PNG"></ion-img>
+    
+  </ion-card>
+
+  <ion-card>   
+
+  <ion-label class="btn-inicio" position="floating">Cedula</ion-label>
+  <ion-input class="btn-inicio" type="text" [(ngModel)]="cedula" name="cedula"></ion-input>
+  <ion-footer>
+    <!--<ion-button class="btn-inicio"   expand="block" [routerLink]="['/detail-person', cedula]">-->
+    <ion-button class="btn-inicio"   expand="block" (click)="nextStep()">
+    <ion-icon slot="end" name="bookmarks"></ion-icon>
+    CONTINUAR
+  </ion-button>
+</ion-footer>
+  
+
+  
+</ion-card>
+ <!-- <ion-footer>
+    
+    <ion-button class="btn-inicio" expand="block" (click)="presentAlertPrompt()">
+      <ion-icon slot="end" name="bookmarks"></ion-icon>
+      Empezar datos
+    </ion-button> -->
+  <!--
+    <ion-button class="btn-inicio" expand="block" routerLink="/datos">
+      <ion-icon slot="end" name="bookmarks"></ion-icon>
+      EMPEZAR
+    </ion-button>-->
+  <!--</ion-footer>-->
+      
+ 
+  <!--<button ion-button color="light" class="btn-inicio">Block Button</button>-->
+
+          <!--<ion-img src="assets/imagenes/album.jpg"></ion-img>-->
+         
+    
+</ion-content>
+

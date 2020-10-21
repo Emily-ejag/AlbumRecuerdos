@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar class="new-background-color">
+    <ion-title>SELECCION DE FOTO</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content forceOverscroll="false" padding class="bg-img">
+  <div class="centrado"> 
+    <ion-card>
+      <ion-grid>
+        <h1>SELECCIONE UNA IMAGEN</h1>
+        <ion-row lines="none">
+          <ion-col size="6" class="photosDefinitivas" *ngFor="let item of photosDefinitivas">  
+            <img src={{item.urlImage}} id='input'  width="300" height="300" (click)="verImagen(item.urlImage)" />
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+    <div *ngIf="seleccionImage==false"><ion-button size="large" color="success" (click)="comprobarImagen()">CONTINUAR</ion-button></div>
+    <div *ngIf="seleccionImage==true"><ion-button size="large" color="success" routerLink = "/nivel1">EMPEZAR A JUGAR</ion-button></div>
+  </div>
+
+</ion-content>

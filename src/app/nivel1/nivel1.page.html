@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar class="new-background-color">
+    <ion-title>Nivel 1</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class= "next">
+    <p>
+      {{_minutos}}:{{_segundos}}.{{_centesimas}}
+    </p>
+  </div>
+  <div class ="previous"> 
+      <ion-button size="large" color="success" (click)="presentAlerta()">AYUDA</ion-button>
+  </div>
+  
+ 
+  <div align="center">
+  <div *ngFor="let datos of data" class="box" appDroppable (dragStart)="cajaMover = datos">
+    <div id="{{datos.id}}" [ngStyle]="{'width': datos.tam, 
+          'height':datos.tam,'background-image': 'url('+datos.urlIm+')', 'background-position':datos.pos}"></div>
+    <div class="box box-helper" *appDraggableHelper>
+      <div id="{{datos.id}}" [ngStyle]="{'width': datos.tam, 
+        'height':datos.tam,'background-image': 'url('+datos.urlIm+')', 'background-position':datos.pos}"></div>
+    </div>
+  </div>
+  </div>
+  <!-- Empieza matriz para arrastrar objetos -->
+  <table align="center">
+    <tr>
+      <td>
+        <div class="box-list" appDropzone (drop)="move0(cajaMover, data2)" (remove)="move0(cajaMover, data)">
+          <div *ngFor="let datos of data2" class="box-list" appDroppable (dragStart)="cajaMover = datos">
+            <div id="{{datos.id}}" [ngStyle]="{'width': datos.tam, 
+                'height':datos.tam,'background-image': 'url('+datos.urlIm+')', 'background-position':datos.pos}"></div>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class="box-list" appDropzone (drop)="move1(cajaMover, data3)" (remove)="move1(cajaMover, data)">
+          <div *ngFor="let datos of data3" class="box-list" appDroppable (dragStart)="cajaMover = datos">
+            <div id="{{datos.id}}" [ngStyle]="{'width': datos.tam, 
+                'height':datos.tam,'background-image': 'url('+datos.urlIm+')', 'background-position':datos.pos}"></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="box-list" appDropzone (drop)="move2(cajaMover, data4)" (remove)="move2(cajaMover, data)">
+          <div *ngFor="let datos of data4" class="box-list" appDroppable (dragStart)="cajaMover = datos">
+            <div id="{{datos.id}}" [ngStyle]="{'width': datos.tam, 
+                'height':datos.tam,'background-image': 'url('+datos.urlIm+')', 'background-position':datos.pos}"></div>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class="box-list" appDropzone (drop)="move3(cajaMover, data5)" (remove)="move3(cajaMover, data)">
+          <div *ngFor="let datos of data5" class="box-list" appDroppable (dragStart)="cajaMover = datos">
+            <div id="{{datos.id}}" [ngStyle]="{'width': datos.tam, 
+                'height':datos.tam,'background-image': 'url('+datos.urlIm+')', 'background-position':datos.pos}"></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+</table>
+<div class="centrado">
+  <div *ngIf="estadoPuzzle==false"><ion-button size="large" color="success" (click)="estaResuelto()">CONTINUAR</ion-button></div>
+  <div *ngIf="estadoPuzzle==true"><ion-button size="large" color="success" routerLink = "/nivel2">CONTINUAR</ion-button></div>
+</div>
+</ion-content>

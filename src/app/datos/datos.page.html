@@ -1,0 +1,109 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Ingresar Datos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="bg-img">
+  <ion-card>
+    <ion-list>
+      <ion-item >
+        <ion-icon slot="end" name="person"></ion-icon>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input type="text" [(ngModel)]="classPerson.name" name="nombre"></ion-input>
+      </ion-item>
+      <ion-item >
+        <ion-icon slot="end" name="calendar"></ion-icon>
+        <ion-label position="floating">Fecha de Nacimiento</ion-label>
+        <ion-datetime displayFormat="DD-MMM-YYYY" [(ngModel)]="classPerson.date_bird"></ion-datetime>
+      </ion-item>
+      <ion-item >
+        <ion-icon slot="end" name="person"></ion-icon>
+        <ion-label position="floating">Padre</ion-label>
+        <ion-input type="text" [(ngModel)]="classPerson.name_father" name="name_father"></ion-input>
+
+      </ion-item>
+      <ion-item >
+        <ion-icon slot="end" name="person"></ion-icon>
+        <ion-label position="floating">Madre</ion-label>
+        <ion-input type="text" [(ngModel)]="classPerson.name_mother" name="name_mother"></ion-input>
+      </ion-item>
+      <ion-radio-group [(ngModel)]="classPerson.gender">
+        <ion-row>
+          <ion-col>
+            <ion-item >
+              <ion-icon slot="end" name="man"></ion-icon>
+              <ion-label>Hombre</ion-label>
+              <ion-radio value="MASCULINO"></ion-radio>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-icon slot="end" name="woman"></ion-icon>
+              <ion-label>Mujer</ion-label>
+              <ion-radio value="FEMENINO"></ion-radio>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-radio-group>
+      <ion-radio-group [(ngModel)]="classPerson.marital_status">
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-icon slot="end" name="happy"></ion-icon>
+              <ion-label>Soltero</ion-label>
+              <ion-radio value="Soltero"></ion-radio>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-icon slot="end" name="heart"></ion-icon>
+              <ion-label>Casado</ion-label>
+              <ion-radio value="Casado"></ion-radio>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-radio-group>
+      <ion-item *ngIf="classPerson.marital_status=='Casado'">
+        <ion-icon slot="end" name="calendar"></ion-icon>
+        <ion-label position="floating">
+          <ion-icon slot="end" name="calendar"></ion-icon>Fecha de Matriminio
+        </ion-label>
+        <ion-datetime displayFormat="DD-MMM-YYYY" [(ngModel)]="classPerson.date_marriage"></ion-datetime>
+      </ion-item>
+      <ion-item *ngIf="classPerson.marital_status=='Casado'">
+        <ion-icon slot="end" name="contacts"></ion-icon>
+        <ion-label position="floating">Nombre de tu Pareja</ion-label>
+        <ion-input type="text" [(ngModel)]="classPerson.name_partner" name="name_partner"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon slot="end" name="people"></ion-icon>
+        <ion-label position="floating">Número de Hijos</ion-label>
+        <ion-input type="number" [(ngModel)]="classPerson.number_children" name="number_children"></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+  <!--Inserta los botones-->
+  <ion-card class="other">
+    <ion-footer>
+      <ion-button class="btn-inicio" expand="block" (click)="onSave()">
+        <ion-icon slot="end" name="bookmarks"></ion-icon>
+        Guardar
+      </ion-button>
+      <ion-row>
+        <ion-col>
+          <ion-button class="btn-inicio" expand="block" (click)="botonRegresar()">
+            <ion-icon slot="end" name="arrow-back"></ion-icon>
+            Cancelar
+          </ion-button>
+        </ion-col>
+
+      </ion-row>
+    </ion-footer>
+  </ion-card>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/detail-person" routerDirection="forward">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

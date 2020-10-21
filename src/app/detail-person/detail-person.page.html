@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar color="primary"> 
+      <ion-title >Bienvenido </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="bg-img">
+
+  <ion-list lines="full">
+    <h2>La Historia De Mi Vida</h2>
+    <ion-row>
+      
+      <ion-col>
+        <ion-item *ngIf="classPerson">
+          <ion-input required type="text" placeholder="number_id" [(ngModel)]="classPerson.number_id"> </ion-input>
+        </ion-item>
+        <ion-item *ngIf="classPerson">
+          <ion-input *ngIf="classPerson.name!=null" required type="text" placeholder="name" [(ngModel)]="classPerson.name"> </ion-input>
+        </ion-item>
+        <ion-item *ngIf="classPerson">
+          <ion-datetime *ngIf="classPerson.date_bird!=null" displayFormat="DD-MMM-YYYY" [(ngModel)]="classPerson.date_bird"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col> 
+        <ion-card>
+          <ion-img *ngIf="classPerson.gender=='1'" src="assets/imagenes/hombre.png"></ion-img>    
+          <ion-img *ngIf="classPerson.gender=='2'" src="assets/imagenes/mujeres.png"></ion-img>    
+      </ion-card>
+        
+      </ion-col>
+    </ion-row>
+  </ion-list>
+
+    <ion-list lines="full">
+      <ion-item *ngIf="classPerson.name_mother!=null">
+        <ion-label *ngIf="classPerson.name_mother!=null">Madre: </ion-label>
+        <ion-input *ngIf="classPerson.name_mother!=null" required type="text" placeholder="name_mother" [(ngModel)]="classPerson.name_mother"> </ion-input>
+      </ion-item>
+      <ion-item *ngIf="classPerson.name_father!=null">
+        <ion-label *ngIf="classPerson.name_father!=null">Padre: </ion-label>
+        <ion-input *ngIf="classPerson.name_father!=null" required type="text" placeholder="name_father" [(ngModel)]="classPerson.name_father"> </ion-input>
+      </ion-item>
+      <ion-item *ngIf="classPerson.name_partner!=''">
+        <ion-label *ngIf="classPerson.name_partner!=''" >Me Case Con: </ion-label>
+        <ion-input *ngIf="classPerson.name_partner!=''" required type="text" placeholder="name_partner" [(ngModel)]="classPerson.name_partner"> </ion-input>
+      </ion-item>
+      <ion-item *ngIf="classPerson.date_marriage!=null">
+        <ion-label *ngIf="classPerson.date_marriage!=null">El: </ion-label>
+        <ion-datetime *ngIf="classPerson.date_marriage!=null" displayFormat="DD-MMM-YYYY" [(ngModel)]="classPerson.date_marriage"></ion-datetime>
+      </ion-item>
+      <ion-item *ngIf="classPerson.number_children!=null" >
+        
+        <ion-label *ngIf="classPerson.number_children!='0'">Número de hijos: </ion-label>
+        <ion-input *ngIf="classPerson.number_children!='0'" required type="text" placeholder="number_children" [(ngModel)]="classPerson.number_children"> </ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-button class="btn-inicio" expand="block" (click)="botonEditar()">
+      <ion-icon slot="end" name="bookmarks"></ion-icon>
+      Editar
+    </ion-button> 
+    <ion-row>
+      <ion-col> 
+        <ion-button class="btn-inicio" expand="block" (click)="botonRegresar()">
+          <ion-icon slot="end" name="arrow-back"></ion-icon>
+          Regresar
+        </ion-button> 
+  </ion-col>
+  <ion-col> 
+    <ion-button class="btn-inicio" expand="block" routerLink="/part1">
+      <ion-icon slot="end" name="arrow-forward"></ion-icon>
+      Continuar
+    </ion-button>
+  </ion-col>
+    </ion-row>
+  
+                                                                                                                                                                                                                                                                                          
+
+</ion-content>

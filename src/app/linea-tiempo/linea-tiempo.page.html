@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Linea de Tiempo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content forceOverscroll="false" padding class="bg-img">
+  <ion-card class="other">
+
+    <ion-grid>
+      <div>Fotografias</div>
+      <ion-row dragula="dragula_band" [(dragulaModel)]="photosDefinitivas" lines="none">
+        <ion-col size="4" *ngFor="let item of photosDefinitivas">
+          <ion-card>
+            <img src={{item.urlImage}} alt="" srcset="" (click)="verImagen(item.urlImage)" />
+          </ion-card>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <!--<div >
+    <ion-row>
+      <ion-col size="6">
+        <div class="q-header">DO</div>
+
+        <ion-list dragula="dragula_band" [(dragulaModel)]="photosOrdenadas" lines="none">
+          <ion-item *ngFor="let item of photosOrdenadas" color="primary" expand="block" text-wrap>
+            <img src={{item.urlImage}} alt="" srcset="" (click)="verImagen(item.urlImage)" />
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </div>-->
+
+
+  <!-- <ion-list dragula="dragula_band" [(dragulaModel)]="photosOrdenadas" lines="none">
+
+    <ion-item *ngFor="let item of photosOrdenadas; index as i">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle><h3>{{i+1}}</h3></ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-img src={{item.urlImage}} ></ion-img>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list> -->
+  <ion-card class="other">
+    <div>Fotografias Ordenadas</div>
+    <ion-toolbar>
+      <ion-segment scrollable dragula="dragula_band" [(dragulaModel)]="photosOrdenadas">
+        <ion-segment-button *ngFor="let item of photosOrdenadas; index as i ">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>
+                {{i+1}}
+              </ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              <img class="others" src={{item.urlImage}}>
+            </ion-card-content>
+          </ion-card>
+        </ion-segment-button>
+
+      </ion-segment>
+    </ion-toolbar>
+  </ion-card>
+
+
+</ion-content>
+
+<ion-footer class="myColor">
+  <ion-row>
+    <ion-col>
+      <ion-button class="btn-inicio" expand="block" (click)="botonRegresar()">
+        <ion-icon slot="end" name="arrow-back"></ion-icon>
+        Regresar
+      </ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button class="btn-inicio" expand="block" routerLink="/part1">
+        <ion-icon slot="end" name="arrow-forward"></ion-icon>
+        Continuar
+      </ion-button>
+    </ion-col>
+  </ion-row>
+  <!--<ion-grid>
+    <div>Observa tus fotografias</div>
+    <ion-slides>
+      <ion-slide *ngFor="let item of photosOrdenadas">
+        <img src={{item.urlImage}} />
+      </ion-slide>
+    </ion-slides>
+  </ion-grid>-->
+</ion-footer>

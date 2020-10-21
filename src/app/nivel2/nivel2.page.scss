@@ -1,0 +1,81 @@
+.new-background-color{
+  --background: rgb(0, 153, 255);
+}
+.centrado{
+  text-align: center;
+}
+.previous {
+  text-align: left;
+  }
+  
+.next {
+text-align: right;
+}
+
+p {
+  color: rgba(0, 0, 0, 0.986) !important;
+  font-size: 2rem !important; 
+}
+
+.box {
+     padding: 10px 10px;
+     display: inline-block;
+   
+     &.dragging {
+       background: coral;
+     }
+   }
+   
+   .dropzone {
+     padding: 20px;
+     margin: 20px 0;
+     background: lightgray;
+     min-height: 200px;
+     border: 1px solid black;
+   
+     &.dropzone-activated {
+       border: 2px solid red;
+     }
+   
+     &.dropzone-entered {
+       background-color: #efefef;
+     }
+   }
+ 
+   .cdk-drag-preview {
+   box-sizing: border-box;
+   border-radius: 4px;
+   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+               0 8px 10px 1px rgba(0, 0, 0, 0.14),
+               0 3px 14px 2px rgba(0, 0, 0, 0.12);
+   }
+ 
+   .cdk-drag-placeholder {
+     opacity: 0;
+   }
+ 
+   .cdk-drag-animating {
+     transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
+   }
+ 
+ 
+ 
+   .example-box:last-child {
+     border: none;
+   }
+ 
+   .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+   }
+ 
+   .box-list {
+     width: 100px;
+     height: 100px;
+     border: solid 0.5px #ccc;
+     display: flex;
+     flex-direction: row;
+     background: white;
+     border-radius: 4px;
+     overflow: hidden;
+     margin: 0 auto;
+   }
